@@ -1,0 +1,508 @@
+import { createFileRoute } from "@tanstack/react-router";
+import {
+  Phone,
+  MapPin,
+  Clock,
+  Star,
+  Truck,
+  Shield,
+  Award,
+  Package,
+  ChevronRight,
+  Menu,
+  X,
+} from "lucide-react";
+import { useState } from "react";
+import heroImg from "../assets/hero-warehouse.jpg";
+import polyImg from "../assets/polycarbonate.jpg";
+import steelImg from "../assets/steel-beams.jpg";
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Your App" },
+      { name: "description", content: "Replace this with a one-sentence description of your app." },
+      { property: "og:title", content: "Your App" },
+      { property: "og:description", content: "Replace this with a one-sentence description of your app." },
+      { title: "Maya Polycarbonate and Steel — Addis Ababa" },
+      { name: "description", content: "Wholesale polycarbonate sheets and structural steel in Addis Ababa. Call 091 122 2240." },
+      { property: "og:title", content: "Maya Polycarbonate and Steel — Addis Ababa" },
+      { property: "og:description", content: "Wholesale polycarbonate sheets and structural steel in Addis Ababa." },
+    ],
+  }),
+  component: Index,
+});
+// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
+function Index() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  return (
+    <div
+      className="flex min-h-screen items-center justify-center"
+      style={{ backgroundColor: "#fcfbf8" }}
+    >
+      <img
+        data-lovable-blank-page-placeholder="REMOVE_THIS"
+        src="https://cdn.gpteng.co/blank-app-v1.svg"
+        alt="Your app will live here!"
+      />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Navigation */}
+      <nav className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between">
+            <a href="/" className="flex flex-col leading-none">
+              <span
+                className="text-2xl tracking-tighter uppercase"
+                style={{ fontFamily: "'Anton', sans-serif" }}
+              >
+                Maya
+              </span>
+              <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-construction -mt-0.5">
+                Polycarbonate & Steel
+              </span>
+            </a>
+            {/* Desktop nav */}
+            <div className="hidden md:flex items-center gap-8">
+              <a href="#products" className="text-sm font-medium text-foreground hover:text-construction transition-colors">
+                Products
+              </a>
+              <a href="#about" className="text-sm font-medium text-foreground hover:text-construction transition-colors">
+                About
+              </a>
+              <a href="#contact" className="text-sm font-medium text-foreground hover:text-construction transition-colors">
+                Contact
+              </a>
+              <a
+                href="tel:0911222240"
+                className="inline-flex items-center gap-2 rounded-md bg-construction px-4 py-2 text-sm font-bold text-primary-foreground hover:bg-construction/90 transition-colors"
+              >
+                <Phone className="h-4 w-4" />
+                091 122 2240
+              </a>
+            </div>
+            {/* Mobile menu button */}
+            <button
+              className="md:hidden p-2 -mr-2"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+        </div>
+        {/* Mobile nav */}
+        {mobileOpen && (
+          <div className="md:hidden border-t border-border bg-background px-4 py-6 space-y-4">
+            <a href="#products" className="block text-base font-medium" onClick={() => setMobileOpen(false)}>
+              Products
+            </a>
+            <a href="#about" className="block text-base font-medium" onClick={() => setMobileOpen(false)}>
+              About
+            </a>
+            <a href="#contact" className="block text-base font-medium" onClick={() => setMobileOpen(false)}>
+              Contact
+            </a>
+            <a
+              href="tel:0911222240"
+              className="inline-flex items-center gap-2 rounded-md bg-construction px-4 py-2.5 text-sm font-bold text-primary-foreground"
+              onClick={() => setMobileOpen(false)}
+            >
+              <Phone className="h-4 w-4" />
+              Call Now
+            </a>
+          </div>
+        )}
+      </nav>
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 pt-12 pb-8 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 rounded-full bg-construction-muted px-3 py-1.5">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-construction opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-construction" />
+                </span>
+                <span className="text-xs font-bold uppercase tracking-wider text-construction">
+                  Wholesale — Addis Ababa
+                </span>
+              </div>
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl leading-[0.95] uppercase tracking-tight text-balance"
+                style={{ fontFamily: "'Anton', sans-serif" }}
+              >
+                Steel &{" "}
+                <span className="text-construction">Polycarbonate</span>{" "}
+                Materials
+              </h1>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-md text-pretty leading-relaxed">
+                The structural backbone of Ethiopia's growing skyline. Direct wholesale of premium polycarbonate sheets and structural steel products.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="tel:0911222240"
+                  className="inline-flex items-center gap-2 rounded-md bg-construction px-6 py-3 text-sm font-bold text-primary-foreground hover:bg-construction/90 transition-colors"
+                >
+                  <Phone className="h-4 w-4" />
+                  Call for Quote
+                </a>
+                <a
+                  href="#products"
+                  className="inline-flex items-center gap-2 rounded-md border border-border bg-card px-6 py-3 text-sm font-bold text-foreground hover:bg-accent transition-colors"
+                >
+                  View Products
+                  <ChevronRight className="h-4 w-4" />
+                </a>
+              </div>
+              <div className="flex items-center gap-1.5 pt-2">
+                <div className="flex">
+                  {[1, 2, 3, 4].map((i) => (
+                    <Star key={i} className="h-4 w-4 fill-construction text-construction" />
+                  ))}
+                  <Star className="h-4 w-4 text-construction/30" />
+                </div>
+                <span className="text-sm font-medium">4.0</span>
+                <span className="text-xs text-muted-foreground">(4 reviews)</span>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] overflow-hidden rounded-xl bg-muted">
+                <img
+                  src={heroImg}
+                  alt="Maya Steel warehouse with steel beams and polycarbonate sheets"
+                  className="h-full w-full object-cover"
+                  width={1200}
+                  height={800}
+                />
+              </div>
+              <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 bg-card border border-border rounded-lg px-4 py-3 shadow-lg">
+                <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Location</p>
+                <p className="text-sm font-bold">2PFQ+V7, Addis Ababa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Stats Section */}
+      <section className="border-y border-border bg-card">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-border">
+            <StatBox label="Years Active" value="10+" />
+            <StatBox label="Monthly Tonnage" value="500+" />
+            <StatBox label="Delivery" value="24H" />
+            <StatBox label="Rating" value="4.0" />
+          </div>
+        </div>
+      </section>
+      {/* Products Section */}
+      <section id="products" className="py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 sm:mb-14">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-construction">
+              Inventory
+            </span>
+            <h2
+              className="mt-2 text-3xl sm:text-4xl uppercase tracking-tight"
+              style={{ fontFamily: "'Anton', sans-serif" }}
+            >
+              Core Materials
+            </h2>
+            <p className="mt-3 text-muted-foreground max-w-lg">
+              We stock a comprehensive range of construction materials for commercial and residential projects across Ethiopia.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Polycarbonate */}
+            <div className="group rounded-xl border border-border bg-card overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-[4/3] overflow-hidden bg-muted">
+                <img
+                  src={polyImg}
+                  alt="Multiwall polycarbonate sheets"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <Package className="h-5 w-5 text-construction" />
+                  <h3 className="text-lg font-bold">Polycarbonate Sheets</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    Multi-wall and solid sheets
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    UV-protected and impact resistant
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    Roofing, cladding, and skylight applications
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    Corrugated and embossed profiles
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {/* Steel */}
+            <div className="group rounded-xl border border-border bg-card overflow-hidden hover:shadow-lg transition-shadow">
+              <div className="aspect-[4/3] overflow-hidden bg-muted">
+                <img
+                  src={steelImg}
+                  alt="Structural steel beams and sections"
+                  className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  width={800}
+                  height={600}
+                  loading="lazy"
+                />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <Package className="h-5 w-5 text-construction" />
+                  <h3 className="text-lg font-bold">Structural Steel</h3>
+                </div>
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    I-beams, H-beams, and channels
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    Hollow and rectangular sections
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    Reinforcement bars (rebar)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-construction shrink-0" />
+                    Galvanized and mild steel options
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Why Choose Us */}
+      <section id="about" className="py-16 sm:py-20 bg-card border-y border-border">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-construction">
+              Why Maya
+            </span>
+            <h2
+              className="mt-2 text-3xl sm:text-4xl uppercase tracking-tight"
+              style={{ fontFamily: "'Anton', sans-serif" }}
+            >
+              Built Different
+            </h2>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <FeatureCard
+              icon={<Truck className="h-6 w-6" />}
+              title="Fast Delivery"
+              description="24-hour delivery to construction sites across Addis Ababa and surrounding areas."
+            />
+            <FeatureCard
+              icon={<Shield className="h-6 w-6" />}
+              title="Quality Assured"
+              description="All materials tested and certified to meet Ethiopian construction standards."
+            />
+            <FeatureCard
+              icon={<Award className="h-6 w-6" />}
+              title="Wholesale Pricing"
+              description="Competitive bulk pricing for contractors, builders, and developers."
+            />
+            <FeatureCard
+              icon={<Phone className="h-6 w-6" />}
+              title="Direct Support"
+              description="Call us directly at 091 122 2240 for quotes and material consultation."
+            />
+          </div>
+        </div>
+      </section>
+      {/* Contact Section */}
+      <section id="contact" className="py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-construction">
+                Get in Touch
+              </span>
+              <h2
+                className="mt-2 text-3xl sm:text-4xl uppercase tracking-tight"
+                style={{ fontFamily: "'Anton', sans-serif" }}
+              >
+                Contact & Location
+              </h2>
+              <p className="mt-4 text-muted-foreground max-w-md">
+                Visit our warehouse in Addis Ababa or call us directly for pricing and availability.
+              </p>
+              <div className="mt-8 space-y-6">
+                <ContactItem
+                  icon={<Phone className="h-5 w-5" />}
+                  label="Phone"
+                  value="091 122 2240"
+                  href="tel:0911222240"
+                />
+                <ContactItem
+                  icon={<MapPin className="h-5 w-5" />}
+                  label="Address"
+                  value="2PFQ+V7, Addis Ababa, Ethiopia"
+                  href="https://www.google.com/maps/search/?api=1&query=2PFQ%2BV7%2C+Addis+Ababa"
+                />
+                <ContactItem
+                  icon={<Clock className="h-5 w-5" />}
+                  label="Hours"
+                  value="Mon – Sat: 7:30 AM – 6:30 PM"
+                />
+              </div>
+              <div className="mt-8 p-4 rounded-lg bg-construction-muted border border-construction/20">
+                <p className="text-sm font-bold text-construction flex items-center gap-2">
+                  <Clock className="h-4 w-4" />
+                  Currently Closed
+                </p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Opens 7:30 AM Monday. Call ahead to confirm stock availability.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-xl overflow-hidden border border-border bg-muted h-72 lg:h-auto min-h-[300px]">
+              <iframe
+                title="Maya Steel Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5!2d38.75!3d9.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMDAnMDAuMCJOIDM4wrA0NScwMC4wIkU!5e0!3m2!1sen!2set!4v1"
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "300px" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* CTA Banner */}
+      <section className="py-12 sm:py-16 bg-charcoal text-primary-foreground">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2
+            className="text-3xl sm:text-4xl uppercase tracking-tight"
+            style={{ fontFamily: "'Anton', sans-serif" }}
+          >
+            Ready to Build?
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-foreground/70 max-w-md mx-auto">
+            Get a competitive quote on polycarbonate sheets and structural steel for your next project.
+          </p>
+          <a
+            href="tel:0911222240"
+            className="mt-6 inline-flex items-center gap-2 rounded-md bg-construction px-8 py-4 text-base font-bold text-primary-foreground hover:bg-construction/90 transition-colors"
+          >
+            <Phone className="h-5 w-5" />
+            Call 091 122 2240
+          </a>
+        </div>
+      </section>
+      {/* Footer */}
+      <footer className="border-t border-border py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="text-center sm:text-left">
+              <span
+                className="text-xl tracking-tighter uppercase"
+                style={{ fontFamily: "'Anton', sans-serif" }}
+              >
+                Maya
+              </span>
+              <p className="text-xs text-muted-foreground mt-1">
+                Polycarbonate & Steel — Addis Ababa, Ethiopia
+              </p>
+            </div>
+            <div className="flex items-center gap-6 text-sm text-muted-foreground">
+              <a href="tel:0911222240" className="hover:text-foreground transition-colors">
+                091 122 2240
+              </a>
+              <span className="hidden sm:inline">·</span>
+              <span className="hidden sm:inline">Mon – Sat: 7:30 AM – 6:30 PM</span>
+            </div>
+          </div>
+          <div className="mt-6 pt-6 border-t border-border text-center">
+            <p className="text-xs text-muted-foreground">
+              © {new Date().getFullYear()} Maya Polycarbonate and Steel. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+function StatBox({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="px-4 py-8 text-center">
+      <span
+        className="block text-3xl sm:text-4xl font-bold text-construction"
+        style={{ fontFamily: "'Anton', sans-serif" }}
+      >
+        {value}
+      </span>
+      <span className="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+        {label}
+      </span>
+    </div>
+  );
+}
+function FeatureCard({
+  icon,
+  title,
+  description,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className="rounded-xl border border-border bg-background p-6 hover:shadow-md transition-shadow">
+      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-construction-muted text-construction mb-4">
+        {icon}
+      </div>
+      <h3 className="text-base font-bold mb-2">{title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+    </div>
+  );
+}
+function ContactItem({
+  icon,
+  label,
+  value,
+  href,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href?: string;
+}) {
+  const content = (
+    <div className="flex items-start gap-4">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-construction-muted text-construction">
+        {icon}
+      </div>
+      <div>
+        <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{label}</p>
+        <p className="text-base font-semibold mt-0.5">{value}</p>
+      </div>
+    </div>
+  );
+  if (href) {
+    return (
+      <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel={href.startsWith("http") ? "noopener noreferrer" : undefined} className="block hover:opacity-80 transition-opacity">
+        {content}
+      </a>
+    );
+  }
+  return content;
+}
